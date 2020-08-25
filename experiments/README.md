@@ -1,6 +1,6 @@
 # Experiments
 
-This folder contains code to reproduce the experiments in Sec. 4 of [the paper](https://arxiv.org/abs/2007.02731).  
+Code to reproduce the experiments in Sec. 4 of [SurVAE Flows: Surjections to Bridge the Gap between VAEs and Flows](https://arxiv.org/abs/2007.02731).  
 We perform 3 sets of experiments:
 1. **Toy Experiments:** We show how absolute value surjections may be used to enforce symmetries on the learned density.
 1. **Point Cloud Experiments:** We show how sorting surjections and stochastic permutation layers may be used to enforce permutation invariance on the learned density.
