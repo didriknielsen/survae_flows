@@ -13,8 +13,11 @@ Composable building blocks of SurVAE flows include:
 
 <!-- <img src="assets/illustrations/transforms_tab.png" width="800"> -->
 
-The code to reproduce the experiments in the paper can be found in the `/experiments/` folder.  
-The experiment code depends on the SurVAE library, described below.
+## Contents:
+
+* `/survae/`: Code for the SurVAE library. See description below.
+* `/examples/`: Runnable examples using the SurVAE library.
+* `/experiments/`: Code to reproduce the experiments in the paper.
 
 ## The SurVAE Library
 
@@ -22,7 +25,6 @@ The experiment code depends on the SurVAE library, described below.
 The SurVAE library is a Python package, built on top of [PyTorch](https://pytorch.org/).  
 The SurVAE library allows straightforward construction of SurVAE flows.
 
-See `/examples/` for runnable examples.  
 See bottom for installation instructions.
 
 #### Example 1: Normalizing Flow
