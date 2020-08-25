@@ -40,71 +40,51 @@ We can construct a simple *normalizing flow* for 2d data by stacking 4 coupling 
 import torch.nn as nn
 from survae.flows import Flow
 from survae.distributions import StandardNormal
-from survae.transforms import AdditiveCouplingBijection, ActNormBijection, Reverse
+from survae.transforms import AffineCouplingBijection, ActNormBijection, Reverse
+from survae.nn.layers import ElementwiseParams
 
 def net():
   return nn.Sequential(nn.Linear(1, 200), nn.ReLU(),
                        nn.Linear(200, 100), nn.ReLU(),
-                       nn.Linear(100, 1))
+                       nn.Linear(100, 2), ElementwiseParams(2))
 
 model = Flow(base_dist=StandardNormal((2,)),
              transforms=[
-               AdditiveCouplingBijection(net()), ActNormBijection(2), Reverse(2),
-               AdditiveCouplingBijection(net()), ActNormBijection(2), Reverse(2),
-               AdditiveCouplingBijection(net()), ActNormBijection(2), Reverse(2),
-               AdditiveCouplingBijection(net()), ActNormBijection(2),
+               AffineCouplingBijection(net()), ActNormBijection(2), Reverse(2),
+               AffineCouplingBijection(net()), ActNormBijection(2), Reverse(2),
+               AffineCouplingBijection(net()), ActNormBijection(2), Reverse(2),
+               AffineCouplingBijection(net()), ActNormBijection(2),
              ])
 ```
 
-#### Example 2: Augmented Normalizing Flow
+#### Example 2: VAE
 
-To turn this into an *augmented normalizing flow*, we simply add `Augment` as the first layer and adjust the dimensions. `Augment` corresponds to a generative slicing operation.
-
-```python
-import torch.nn as nn
-from survae.flows import Flow
-from survae.distributions import StandardNormal
-from survae.transforms import Augment, AdditiveCouplingBijection, ActNormBijection, Reverse
-
-def net():
-  return nn.Sequential(nn.Linear(2, 200), nn.ReLU(),
-                       nn.Linear(200, 100), nn.ReLU(),
-                       nn.Linear(100, 2))
-
-model = Flow(base_dist=StandardNormal((4,)),
-             transforms=[
-               Augment(StandardNormal((2,)), x_size=2),
-               AdditiveCouplingBijection(net()), ActNormBijection(4), Reverse(4),
-               AdditiveCouplingBijection(net()), ActNormBijection(4), Reverse(4),
-               AdditiveCouplingBijection(net()), ActNormBijection(4), Reverse(4),
-               AdditiveCouplingBijection(net()), ActNormBijection(4),
-             ])
-```
-
-#### Example 3: Hierarchical VAE
-We may also use a sequence of stochastic transformations, corresponding to a *hierarchical VAE* with 4 stochastic layers.
+We here construct a simple *VAE* for binary images of shape (1,28,28), such as binarized MNIST.  
+We here use the built-in `MLP` insted of manually constructing an MLP as we did in the toy example.  
+Note that this VAE is easily extended to a *hierarchical VAE* with multiple stochastic layers simply by stacking VAE transforms.
 
 ```python
-import torch.nn as nn
 from survae.flows import Flow
-from survae.distributions import StandardNormal, ConditionalNormal
 from survae.transforms import VAE
+from survae.distributions import StandardNormal, ConditionalNormal, ConditionalBernoulli
+from survae.nn.nets import MLP
 
-def net():
-  return nn.Sequential(nn.Linear(2, 200), nn.ReLU(),
-                       nn.Linear(200, 100), nn.ReLU(),
-                       nn.Linear(100, 4))
+encoder = ConditionalNormal(MLP(784, 2*latent_size,
+                                hidden_units=[512,256],
+                                activation='relu',
+                                in_lambda=lambda x: 2 * x.view(x.shape[0], 784).float() - 1))
+decoder = ConditionalBernoulli(MLP(latent_size, 784,
+                                   hidden_units=[512,256],
+                                   activation='relu',
+                                   out_lambda=lambda x: x.view(x.shape[0], 1, 28, 28)))
 
-model = Flow(base_dist=StandardNormal((2,)),
+model = Flow(base_dist=StandardNormal((latent_size,)),
              transforms=[
-               VAE(encoder=ConditionalNormal(net()), decoder=ConditionalNormal(net())),
-               VAE(encoder=ConditionalNormal(net()), decoder=ConditionalNormal(net())),
-               VAE(encoder=ConditionalNormal(net()), decoder=ConditionalNormal(net())),
-               VAE(encoder=ConditionalNormal(net()), decoder=ConditionalNormal(net())),
+                VAE(encoder=encoder, decoder=decoder)
              ])
 ```
 
-#### Example 4: Multi-Scale Augmented Flow
+#### Example 3: Multi-Scale Augmented Flow
 
 Here is an example of a multi-scale convolutional augmented flow for (3,32,32) images such as CIFAR-10.  
 Notice that this makes use of 3 types of surjective layers:
