@@ -104,7 +104,7 @@ model = Flow(base_dist=StandardNormal((2,)),
              ])
 ```
 
-#### Example 4: Multi-scale augmented flow
+#### Example 4: Multi-Scale Augmented Flow
 
 Here is an example of a multi-scale convolutional augmented flow for (3,32,32) images such as CIFAR-10.  
 Notice that this makes use of 3 types of surjective layers:
