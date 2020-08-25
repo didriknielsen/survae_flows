@@ -25,7 +25,12 @@ Composable building blocks of SurVAE flows include:
 The SurVAE library is a Python package, built on top of [PyTorch](https://pytorch.org/).  
 The SurVAE library allows straightforward construction of SurVAE flows.
 
-See bottom for installation instructions.
+#### Installation
+
+In the folder containing `setup.py`, run
+```
+pip install .
+```
 
 #### Example 1: Normalizing Flow
 
@@ -159,15 +164,3 @@ This code base builds on several other repositories. The biggest sources of insp
 * https://github.com/karpathy/pytorch-made
 
 Thanks to the authors of these and the many other useful repositories!
-
-
-#### Installation
-
-In the folder containing `setup.py`, run
-```
-pip install --user -e .
-```
-The `--user` option ensures the library will only be installed for your user.  
-The `-e` option makes it possible to modify the library, and modifications will be loaded on the fly.
-
-You should now be able to use it.
