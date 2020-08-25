@@ -21,8 +21,7 @@ In less than 2 minutes of training on CPU, you get a result like this:
 
 In less than 2 minutes of training on CPU/GPU, you get samples like this:
 
-<img src="../assets/examples/mnist_data.png" width="400">
-<img src="../assets/examples/mnist_vae.png" width="400">
+<img src="../assets/examples/mnist_data.png" width="400"> <img src="../assets/examples/mnist_vae.png" width="400">
 
 **Left:** *Data*, **Right:** *Samples*.
 
@@ -36,8 +35,7 @@ Longer training, larger models and/or convolutional neural networks would likely
 A multi-scale augmented flow on CIFAR-10.  
 In less than 2 hours of training on a Titan X (Pascal) GPU, you get a model with test set performance of **3.79 bits/dim** and samples like this:
 
-<img src="../assets/examples/cifar10_data.png" width="400">
-<img src="../assets/examples/cifar10_aug_flow.png" width="400">
+<img src="../assets/examples/cifar10_data.png" width="400"> <img src="../assets/examples/cifar10_aug_flow.png" width="400">
 
 **Left:** *Data*, **Right:** *Samples*.
 
