@@ -34,7 +34,8 @@ pip install .
 
 #### Example 1: Normalizing Flow
 
-We can construct a simple *normalizing flow* for 2d data by stacking 4 coupling layers.
+We can construct a simple *normalizing flow* by stacking **bijective transformations**.  
+In this case, we model 2d data using a flow of 4 affine coupling layers.
 
 ```python
 import torch.nn as nn
@@ -59,9 +60,10 @@ model = Flow(base_dist=StandardNormal((2,)),
 
 #### Example 2: VAE
 
-We here construct a simple *VAE* for binary images of shape (1,28,28), such as binarized MNIST.  
-We here use the built-in `MLP` insted of manually constructing an MLP as we did in the toy example.  
-Note that this VAE is easily extended to a *hierarchical VAE* with multiple stochastic layers simply by stacking VAE transforms.
+We can further build *VAEs* using **stochastic transformations**.  
+We here construct a simple VAE for binary images of shape (1,28,28), such as binarized MNIST.  
+We can easily extend this simple VAE by combining it with other layers to obtain e.g. hierarchical VAEs or VAEs with flow priors.  
+We can also use conditional flows in the encoder and/or decoder to obtain VAEs with more expressive conditional transformations.
 
 ```python
 from survae.flows import Flow
@@ -86,11 +88,15 @@ model = Flow(base_dist=StandardNormal((latent_size,)),
 
 #### Example 3: Multi-Scale Augmented Flow
 
-Here is an example of a multi-scale convolutional augmented flow for (3,32,32) images such as CIFAR-10.  
+It is straightforward to implement e.g. dequantization, augmentation and multi-scale architectures using **surjective transformations**.  
+Here, we use these layers in a *multi-scale augmented flow* for (3,32,32) images such as CIFAR-10.  
+
 Notice that this makes use of 3 types of surjective layers:
 1. **Generative rounding:** Implemented using `UniformDequantization`. Allows conversion to continuous variables. Useful for training continuous flows on ordinal discrete data.
 1. **Generative slicing:** Implemented using `Augment`. Allows increasing dimensionality towards the latent space. Useful for constructing augmented normalizing flows.
 1. **Inference slicing:** Implemented using `Slice`. Allows decreasing dimensionality towards the latent space. Useful for constructing multi-scale architectures.
+
+
 
 ```python
 import torch.nn as nn
