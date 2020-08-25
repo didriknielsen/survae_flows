@@ -5,9 +5,7 @@ We compare flow models trained trained on the exchangeable SpatialMNIST dataset.
 Below, we show some samples from the trained models:  
 **Left:** *Data*, **Middle:** *SortFlow*, **Right:** *PermuteFlow*.  
 
-<img src="../../assets/point_cloud/data.png" width="250">
-<img src="../../assets/point_cloud/sort_flow.png" width="250">
-<img src="../../assets/point_cloud/perm_flow.png" width="250">
+<img src="../../assets/point_cloud/data.png" width="250"> <img src="../../assets/point_cloud/sort_flow.png" width="250"> <img src="../../assets/point_cloud/perm_flow.png" width="250">
 
 
 ## Training
