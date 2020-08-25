@@ -6,14 +6,11 @@ Below, we show some samples from the trained models:
 **Left:** *MaxPoolFlow*, **Right:** *Baseline*.  
 **Top:** *CIFAR-10*, **Middle:** *ImageNet 32x32*, **Bottom:** *ImageNet 64x64*.
 
-<img src="../../assets/image/c10_max.png" width="400">
-<img src="../../assets/image/c10_non.png" width="400">
+<img src="../../assets/image/c10_max.png" width="400"> <img src="../../assets/image/c10_non.png" width="400">
 
-<img src="../../assets/image/i32_max.png" width="400">
-<img src="../../assets/image/i32_non.png" width="400">
+<img src="../../assets/image/i32_max.png" width="400"> <img src="../../assets/image/i32_non.png" width="400">
 
-<img src="../../assets/image/i64_max.png" width="400">
-<img src="../../assets/image/i64_non.png" width="400">
+<img src="../../assets/image/i64_max.png" width="400"> <img src="../../assets/image/i64_non.png" width="400">
 
 ## Training
 
