@@ -6,8 +6,8 @@ by Didrik Nielsen, Priyank Jaini, Emiel Hoogeboom, Ole Winther, Max Welling.
 Composable building blocks of SurVAE flows include:  
 * **Bijective:** Invertible deterministic transformations. The usual building blocks in normalizing flows.
 * **Stochastic:** Stochastic transformations with stochastic inverses. VAEs are an important example.
-* **Surjective (Gen.):** Generative surjections are deterministic in the generative direction with a stochastic right-inverse in the inference direction.
-* **Surjective (Inf.):** Inference surjections are deterministic in the inference direction with a stochastic right-inverse in the generative direction.
+* **Surjective (Gen.):** Deterministic transformations in the generative direction with a stochastic right-inverse in the inference direction.
+* **Surjective (Inf.):** Deterministic transformations in the inference direction with a stochastic right-inverse in the generative direction.
 
 <img src="assets/illustrations/transforms_fig.png" width="800">  
 
