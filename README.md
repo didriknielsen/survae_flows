@@ -62,8 +62,8 @@ model = Flow(base_dist=StandardNormal((2,)),
 
 We can further build *VAEs* using **stochastic transformations**.  
 We here construct a simple VAE for binary images of shape (1,28,28), such as binarized MNIST.  
-We can easily extend this simple VAE by combining it with other layers to obtain e.g. hierarchical VAEs or VAEs with flow priors.  
-We can also use conditional flows in the encoder and/or decoder to obtain VAEs with more expressive conditional transformations.
+We can easily extend this simple VAE by adding more layers to obtain e.g. hierarchical VAEs or VAEs with flow priors.  
+We can also use conditional flows in the encoder and/or decoder to obtain a more expressive VAE transformation.
 
 ```python
 from survae.flows import Flow
@@ -88,7 +88,7 @@ model = Flow(base_dist=StandardNormal((latent_size,)),
 
 #### Example 3: Multi-Scale Augmented Flow
 
-It is straightforward to implement e.g. dequantization, augmentation and multi-scale architectures using **surjective transformations**.  
+We can implement e.g. dequantization, augmentation and multi-scale flows using **surjective transformations**.  
 Here, we use these layers in a *multi-scale augmented flow* for (3,32,32) images such as CIFAR-10.  
 
 Notice that this makes use of 3 types of surjective layers:
