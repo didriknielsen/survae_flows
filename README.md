@@ -11,7 +11,7 @@ Composable building blocks of SurVAE flows include:
 
 <img src="assets/illustrations/transforms_fig.png" width="800">  
 
-<img src="assets/illustrations/transforms_tab.png" width="800">
+<!-- <img src="assets/illustrations/transforms_tab.png" width="800"> -->
 
 The code to reproduce the experiments in the paper can be found in the `/experiments/` folder.  
 The experiment code depends on the SurVAE library, described below.
