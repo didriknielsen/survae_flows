@@ -5,21 +5,13 @@ We compare flow models on toy datasets containing symmetries or anti-symmetries.
 Below, we compare data samples to the learned densities.  
 **Left:** *Data*, **Middle:** *Baseline*, **Right:** *AbsFlow*.  
 
-<img src="../../assets/toy/checkerboard.png" width="250">
-<img src="../../assets/toy/checkerboard_flow_density.png" width="250">
-<img src="../../assets/toy/checkerboard_abs_unif_density.png" width="250">
+<img src="../../assets/toy/checkerboard.png" width="250"> <img src="../../assets/toy/checkerboard_flow_density.png" width="250"> <img src="../../assets/toy/checkerboard_abs_unif_density.png" width="250">
 
-<img src="../../assets/toy/corners.png" width="250">
-<img src="../../assets/toy/corners_flow_density.png" width="250">
-<img src="../../assets/toy/corners_abs_flow_density.png" width="250">
+<img src="../../assets/toy/corners.png" width="250"> <img src="../../assets/toy/corners_flow_density.png" width="250"> <img src="../../assets/toy/corners_abs_flow_density.png" width="250">
 
-<img src="../../assets/toy/eight_gaussians.png" width="250">
-<img src="../../assets/toy/eight_gaussians_flow_density.png" width="250">
-<img src="../../assets/toy/eight_gaussians_abs_flow_density.png" width="250">
+<img src="../../assets/toy/eight_gaussians.png" width="250"> <img src="../../assets/toy/eight_gaussians_flow_density.png" width="250"> <img src="../../assets/toy/eight_gaussians_abs_flow_density.png" width="250">
 
-<img src="../../assets/toy/four_circles.png" width="250">
-<img src="../../assets/toy/four_circles_flow_density.png" width="250">
-<img src="../../assets/toy/four_circles_abs_flow_density.png" width="250">
+<img src="../../assets/toy/four_circles.png" width="250"> <img src="../../assets/toy/four_circles_flow_density.png" width="250"> <img src="../../assets/toy/four_circles_abs_flow_density.png" width="250">
 
 ## Training
 
