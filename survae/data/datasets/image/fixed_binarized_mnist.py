@@ -38,7 +38,7 @@ class FixedBinaryMNISTDataset(data.Dataset):
     def __getitem__(self, index):
         img = self.data[index]
         img = Image.fromarray(img)
-        img = transforms.ToTensor()(img).type(torch.FloatTensor)
+        img = transforms.ToTensor()(np.array(img)).type(torch.FloatTensor)
         return img
 
     def __len__(self):
