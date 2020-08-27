@@ -72,8 +72,8 @@ python eval_sample.py --model /home/didni/log/cifar10_8bit/pool_flow/more/nonpoo
 #### ImageNet 32x32
 Log-likelihood:
 ```python
-python eval_sample.py --model /home/didni/log/imagenet32_8bit/pool_flow/more/maxpool
-python eval_sample.py --model /home/didni/log/imagenet32_8bit/pool_flow/more/nonpool
+python eval_loglik.py --model /home/didni/log/imagenet32_8bit/pool_flow/more/maxpool
+python eval_loglik.py --model /home/didni/log/imagenet32_8bit/pool_flow/more/nonpool
 ```
 Sampling:
 ```python
