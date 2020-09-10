@@ -3,6 +3,8 @@
 Official code for [SurVAE Flows: Surjections to Bridge the Gap between VAEs and Flows](https://arxiv.org/abs/2007.02731)  
 by Didrik Nielsen, Priyank Jaini, Emiel Hoogeboom, Ole Winther, Max Welling.
 
+Be sure to check out Max Wellings talk on [Unifying VAEs and Flows](https://www.youtube.com/watch?v=bXp8fk4MRXQ).
+
 Composable building blocks of SurVAE flows include:  
 * **Bijective:** Invertible deterministic transformations. The usual building blocks in normalizing flows.
 * **Stochastic:** Stochastic transformations with stochastic inverses. VAEs are an important example.
