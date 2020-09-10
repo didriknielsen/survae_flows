@@ -13,15 +13,21 @@ class Conv1x1(Bijection):
 
     Args:
         num_channels (int): Number of channels in the input and output.
-        orthogonal_init: bool, if True initialize weights to be a random orthogonal matrix (default=True).
+        orthogonal_init (bool): If True, initialize weights to be a random orthogonal matrix (default=True).
+        slogdet_cpu (bool): If True, compute slogdet on cpu (default=True).
+
+    Note:
+        torch.slogdet appears to run faster on CPU than on GPU.
+        slogdet_cpu is thus set to True by default.
 
     References:
         [1] Glow: Generative Flow with Invertible 1×1 Convolutions,
             Kingma & Dhariwal, 2018, https://arxiv.org/abs/1807.03039
     """
-    def __init__(self, num_channels, orthogonal_init=True):
+    def __init__(self, num_channels, orthogonal_init=True, slogdet_cpu=True):
         super(Conv1x1, self).__init__()
         self.num_channels = num_channels
+        self.slogdet_cpu = slogdet_cpu
         self.weight = nn.Parameter(torch.Tensor(num_channels, num_channels))
         self.reset_parameters(orthogonal_init)
 
@@ -39,9 +45,12 @@ class Conv1x1(Bijection):
 
     def _logdet(self, x_shape):
         b, c, h, w = x_shape
-        _, ldj_per_pixel = torch.slogdet(self.weight)
+        if self.slogdet_cpu:
+            _, ldj_per_pixel = torch.slogdet(self.weight.to('cpu'))
+        else:
+            _, ldj_per_pixel = torch.slogdet(self.weight)
         ldj = ldj_per_pixel * h * w
-        return ldj.expand([b])
+        return ldj.expand([b]).to(self.weight.device)
 
     def forward(self, x):
         z = self._conv(self.weight, x)
