@@ -10,17 +10,19 @@ class Conv1x1Test(BijectionTest):
 
     def test_bijection_is_well_behaved(self):
         batch_size = 10
-        shape = [3, 32, 32]
-        x = torch.rand(batch_size, *shape)
+        shapes = ([3, 32], [3, 32, 32], [3, 32, 32, 32])
         bijections = [
             Conv1x1(3, orthogonal_init=True),
             Conv1x1(3, orthogonal_init=False),
         ]
 
         self.eps = 1e-4
-        for bijection in bijections:
-            with self.subTest(bijection=bijection):
-                self.assert_bijection_is_well_behaved(bijection, x, z_shape=(batch_size, *shape))
+
+        for shape in shapes:
+            x = torch.rand(batch_size, *shape)
+            for bijection in bijections:
+                with self.subTest(bijection=bijection):
+                    self.assert_bijection_is_well_behaved(bijection, x, z_shape=(batch_size, *shape))
 
 
 if __name__ == '__main__':
