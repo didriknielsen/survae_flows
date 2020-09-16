@@ -52,7 +52,6 @@ class Conv1x1(Bijection):
         fill = (1,) * n_feature_dims
         weight = weight.view(channel, channel, *fill)
 
-        print(weight.shape)
         if n_feature_dims == 1:
             return F.conv1d(v, weight)
         elif n_feature_dims == 2:
@@ -60,7 +59,7 @@ class Conv1x1(Bijection):
         elif n_feature_dims == 3:
             return F.conv3d(v, weight)
         else:
-            raise ValueError(f'Got {n_feature_dims}d tensor, expected 1d, 2d, or 3d ')
+            raise ValueError(f'Got {n_feature_dims}d tensor, expected 1d, 2d, or 3d')
 
     def _logdet(self, x_shape):
         b, c, *dims = x_shape
