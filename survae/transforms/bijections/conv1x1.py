@@ -1,3 +1,5 @@
+from functools import reduce
+from operator import mul
 import numpy as np
 import torch
 import torch.nn as nn
@@ -41,15 +43,31 @@ class Conv1x1(Bijection):
             nn.init.uniform_(self.weight, -bound, bound)
 
     def _conv(self, weight, v):
-        return F.conv2d(v, weight.unsqueeze(-1).unsqueeze(-1))
+        
+        # Get tensor dimensions
+        _, channel, *features = v.shape
+        n_feature_dims = len(features)
+        
+        # expand weight matrix
+        fill = (1,) * n_feature_dims
+        weight = weight.view(channel, channel, *fill)
+
+        if n_feature_dims == 1:
+            return F.conv1d(v, weight)
+        elif n_feature_dims == 2:
+            return F.conv2d(v, weight)
+        elif n_feature_dims == 3:
+            return F.conv3d(v, weight)
+        else:
+            raise ValueError(f'Got {n_feature_dims}d tensor, expected 1d, 2d, or 3d')
 
     def _logdet(self, x_shape):
-        b, c, h, w = x_shape
+        b, c, *dims = x_shape
         if self.slogdet_cpu:
             _, ldj_per_pixel = torch.slogdet(self.weight.to('cpu'))
         else:
             _, ldj_per_pixel = torch.slogdet(self.weight)
-        ldj = ldj_per_pixel * h * w
+        ldj = ldj_per_pixel * reduce(mul, dims)
         return ldj.expand([b]).to(self.weight.device)
 
     def forward(self, x):
