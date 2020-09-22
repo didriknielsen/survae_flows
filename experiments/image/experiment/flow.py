@@ -1,7 +1,7 @@
 import torch
 from survae.distributions import DataParallelDistribution
 from survae.utils import elbo_bpd
-from utils import get_args_table, clean_dict
+from .utils import get_args_table, clean_dict
 
 # Path
 import os
@@ -9,7 +9,7 @@ import time
 from survae.data.path import get_survae_path
 
 # Experiment
-from base import BaseExperiment
+from .base import BaseExperiment
 
 # Logging frameworks
 from torch.utils.tensorboard import SummaryWriter

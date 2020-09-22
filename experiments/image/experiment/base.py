@@ -1,7 +1,7 @@
 import os
 import pickle
 import torch
-from utils import get_args_table, get_metric_table
+from .utils import get_args_table, get_metric_table
 
 
 class BaseExperiment(object):
