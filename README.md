@@ -59,6 +59,7 @@ model = Flow(base_dist=StandardNormal((2,)),
                AffineCouplingBijection(net()), ActNormBijection(2),
              ])
 ```
+See [here](https://github.com/didriknielsen/survae_flows/blob/master/examples/toy_flow.py) for a runnable example.
 
 #### Example 2: VAE
 
@@ -87,6 +88,7 @@ model = Flow(base_dist=StandardNormal((latent_size,)),
                 VAE(encoder=encoder, decoder=decoder)
              ])
 ```
+See [here](https://github.com/didriknielsen/survae_flows/blob/master/examples/mnist_vae.py) for a runnable example.
 
 #### Example 3: Multi-Scale Augmented Flow
 
@@ -141,6 +143,7 @@ model = Flow(base_dist=StandardNormal((24,8,8)),
                AffineCouplingBijection(net(24)), ActNormBijection2d(24), Conv1x1(24),
              ])
 ```
+See [here](https://github.com/didriknielsen/survae_flows/blob/master/examples/cifar10_aug_flow.py) for a runnable example.
 
 
 #### Acknowledgements
