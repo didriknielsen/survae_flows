@@ -21,6 +21,8 @@ Composable building blocks of SurVAE flows include:
 * `/examples/`: Runnable examples using the SurVAE library.
 * `/experiments/`: Code to reproduce the experiments in the paper.
 
+Pretrained model checkpoints can be downloaded from [releases](https://github.com/didriknielsen/survae_flows/releases/tag/v1.0.0).
+
 ## The SurVAE Library
 
 
