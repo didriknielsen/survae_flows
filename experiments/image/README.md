@@ -2,6 +2,8 @@
 
 We compare flow models trained on image data using either a max pooling surjection or tensor slicing surjection for downsampling. Note that tensor slicing gives rise to the commonly-used multi-scale architecture and is therefore used as a baseline.
 
+Pretrained model checkpoints can be downloaded from [releases](https://github.com/didriknielsen/survae_flows/releases/tag/v1.0.0).
+
 Below, we show some samples from the trained models:  
 **Left:** *MaxPoolFlow*, **Right:** *Baseline*.  
 **Top:** *CIFAR-10*, **Middle:** *ImageNet 32x32*, **Bottom:** *ImageNet 64x64*.
