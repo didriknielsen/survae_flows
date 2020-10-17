@@ -1,21 +1,25 @@
 # SurVAE Flows
 
-Official code for [SurVAE Flows: Surjections to Bridge the Gap between VAEs and Flows](https://arxiv.org/abs/2007.02731)  
+> Official code for [SurVAE Flows: Surjections to Bridge the Gap between VAEs and Flows](https://arxiv.org/abs/2007.02731)  
 by Didrik Nielsen, Priyank Jaini, Emiel Hoogeboom, Ole Winther, Max Welling.
 
-Be sure to check out Max Wellings talk on [Unifying VAEs and Flows](https://www.youtube.com/watch?v=bXp8fk4MRXQ).
+SurVAE Flows is a framework of composable transformations that extends the framework of normalizing flows.  
+SurVAE Flows make use of not only **bijective** transformations, but also **surjective** and **stochastic** transformations.  
+For more details, see the [paper](https://arxiv.org/abs/2007.02731) or check out this [talk](https://www.youtube.com/watch?v=bXp8fk4MRXQ) by Max Welling.
 
-Composable building blocks of SurVAE flows include:  
+<img src="assets/illustrations/transforms_fig.png" width="800">  
+
+<!-- Composable building blocks of SurVAE flows include:  
 * **Bijective:** Invertible deterministic transformations. The usual building blocks in normalizing flows.
 * **Stochastic:** Stochastic transformations with stochastic inverses. VAEs are an important example.
 * **Surjective (Gen.):** Deterministic transformations in the generative direction with a stochastic right-inverse in the inference direction.
 * **Surjective (Inf.):** Deterministic transformations in the inference direction with a stochastic right-inverse in the generative direction.
 
-<img src="assets/illustrations/transforms_fig.png" width="800">  
 
-<!-- <img src="assets/illustrations/transforms_tab.png" width="800"> -->
+For more details, see [the paper](https://arxiv.org/abs/2007.02731) or check out this talk by Max Welling:  
+[![Talk](https://img.youtube.com/vi/bXp8fk4MRXQ/0.jpg)](https://www.youtube.com/watch?v=bXp8fk4MRXQ) -->
 
-## Contents:
+## Contents
 
 * `/survae/`: Code for the SurVAE library. See description below.
 * `/examples/`: Runnable examples using the SurVAE library.
