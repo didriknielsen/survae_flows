@@ -17,6 +17,16 @@ class DynamicallyBinarizedMNIST(TrainTestLoader):
     '''
 
     def __init__(self, root=DATA_PATH, download=True, flatten=False):
+        """
+        Initialize a tensor.
+
+        Args:
+            self: (todo): write your description
+            root: (str): write your description
+            DATA_PATH: (str): write your description
+            download: (todo): write your description
+            flatten: (todo): write your description
+        """
 
         self.root = root
 

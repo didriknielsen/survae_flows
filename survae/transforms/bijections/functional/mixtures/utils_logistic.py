@@ -3,6 +3,14 @@ import torch.nn.functional as F
 
 
 def logistic_log_cdf(x, means, log_scales):
+    """
+    Logistic logistic logistic function.
+
+    Args:
+        x: (array): write your description
+        means: (array): write your description
+        log_scales: (todo): write your description
+    """
     return F.logsigmoid(torch.exp(-log_scales) * (x - means))
 
 

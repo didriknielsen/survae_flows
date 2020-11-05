@@ -8,6 +8,12 @@ from survae.nn.layers import LambdaLayer
 class LambdaLayerTest(ModuleTest):
 
     def test_layer_is_well_behaved(self):
+        """
+        Test if the layer is a dense.
+
+        Args:
+            self: (todo): write your description
+        """
         batch_size = 10
         shape = (6,)
         x = torch.randn(batch_size, *shape)

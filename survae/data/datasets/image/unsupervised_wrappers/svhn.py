@@ -5,6 +5,17 @@ from survae.data import DATA_PATH
 
 class UnsupervisedSVHN(SVHN):
     def __init__(self, root=DATA_PATH, split='train', transform=None, download=False):
+        """
+        Initialize the root directory.
+
+        Args:
+            self: (todo): write your description
+            root: (str): write your description
+            DATA_PATH: (str): write your description
+            split: (int): write your description
+            transform: (str): write your description
+            download: (todo): write your description
+        """
         super(UnsupervisedSVHN, self).__init__(root,
                                                split=split,
                                                transform=transform,

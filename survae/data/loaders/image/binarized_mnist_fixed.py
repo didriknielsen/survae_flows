@@ -16,6 +16,15 @@ class FixedBinarizedMNIST(TrainValidTestLoader):
     '''
 
     def __init__(self, root=DATA_PATH, download=True):
+        """
+        Initialize the dataset.
+
+        Args:
+            self: (todo): write your description
+            root: (str): write your description
+            DATA_PATH: (str): write your description
+            download: (todo): write your description
+        """
 
         self.train = FixedBinaryMNISTDataset(root, split='train', download=download)
         self.valid = FixedBinaryMNISTDataset(root, split='valid')

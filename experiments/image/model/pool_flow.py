@@ -13,6 +13,27 @@ class PoolFlow(Flow):
                  dequant, dequant_steps, dequant_context,
                  densenet_blocks, densenet_channels, densenet_depth,
                  densenet_growth, dropout, gated_conv):
+        """
+        Initialize the flow.
+
+        Args:
+            self: (todo): write your description
+            data_shape: (str): write your description
+            num_bits: (int): write your description
+            num_scales: (int): write your description
+            num_steps: (int): write your description
+            actnorm: (todo): write your description
+            pooling: (todo): write your description
+            dequant: (todo): write your description
+            dequant_steps: (int): write your description
+            dequant_context: (todo): write your description
+            densenet_blocks: (todo): write your description
+            densenet_channels: (todo): write your description
+            densenet_depth: (todo): write your description
+            densenet_growth: (todo): write your description
+            dropout: (str): write your description
+            gated_conv: (todo): write your description
+        """
 
         transforms = []
         current_shape = data_shape
