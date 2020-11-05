@@ -29,6 +29,11 @@ test_loader = DataLoader(test, batch_size=128, shuffle=True)
 ###########
 
 def net():
+    """
+    R calculate the network.
+
+    Args:
+    """
   return nn.Sequential(nn.Linear(1, 200), nn.ReLU(),
                        nn.Linear(200, 100), nn.ReLU(),
                        nn.Linear(100, 2), ElementwiseParams(2))

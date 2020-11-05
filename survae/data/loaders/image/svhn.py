@@ -12,6 +12,17 @@ class SVHN(TrainTestLoader):
     '''
 
     def __init__(self, root=DATA_PATH, download=True, num_bits=8, pil_transforms=[]):
+        """
+        Initialize a tensor
+
+        Args:
+            self: (todo): write your description
+            root: (str): write your description
+            DATA_PATH: (str): write your description
+            download: (todo): write your description
+            num_bits: (int): write your description
+            pil_transforms: (todo): write your description
+        """
 
         self.root = root
 

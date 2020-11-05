@@ -37,6 +37,12 @@ train_loader, test_loader = data.get_data_loaders(32)
 ###########
 
 def net(channels):
+    """
+    Create a layer.
+
+    Args:
+        channels: (int): write your description
+    """
   return nn.Sequential(DenseNet(in_channels=channels//2,
                                 out_channels=channels,
                                 num_blocks=1,

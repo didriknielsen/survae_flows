@@ -7,6 +7,21 @@ class DenseNet(nn.Sequential):
     def __init__(self, in_channels, out_channels, num_blocks,
                  mid_channels, depth, growth, dropout,
                  gated_conv=False, zero_init=False):
+        """
+        Initialize the convolution layer.
+
+        Args:
+            self: (todo): write your description
+            in_channels: (int): write your description
+            out_channels: (int): write your description
+            num_blocks: (int): write your description
+            mid_channels: (int): write your description
+            depth: (float): write your description
+            growth: (todo): write your description
+            dropout: (str): write your description
+            gated_conv: (todo): write your description
+            zero_init: (bool): write your description
+        """
 
         layers = [nn.Conv2d(in_channels, mid_channels, kernel_size=1, padding=0)] +\
                  [ResidualDenseBlock(in_channels=mid_channels,

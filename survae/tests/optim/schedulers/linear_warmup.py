@@ -9,6 +9,12 @@ from survae.optim.schedulers import LinearWarmupScheduler
 class LinearWarmupSchedulerTest(torchtestcase.TorchTestCase):
 
     def test_lr(self):
+        """
+        Test the optimizer.
+
+        Args:
+            self: (todo): write your description
+        """
         model = nn.Linear(10,5)
         optimizer = SGD(model.parameters(), lr=0.1)
         scheduler = LinearWarmupScheduler(optimizer, total_epoch=5)
