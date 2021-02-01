@@ -56,8 +56,10 @@ class SneakyReLU(Bijection):
 
 class Tanh(Bijection):
     def forward(self, x):
+        # The "+ 1e-45" bit is for numerical stability. Otherwise the ldj will be -inf where any element of x is around
+        # 6.0 or greater, since torch.tanh() returns 1.0 around that point. This way it maxes out around -103.2789.
         z = torch.tanh(x)
-        ldj = torch.log(1 - z ** 2)
+        ldj = torch.log(1 - z ** 2 + 1e-45)
         ldj = sum_except_batch(ldj)
         return z, ldj
 
